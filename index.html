@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore Myanmar's disaster risks and find practical ways to reduce harm at home and in your community.">
+    <title>Ready Myanmar | Reduce Disaster Risk</title>
+
+    <link rel="icon" href="images/ready-myanmar-logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header id="siteHeader">
+        <nav class="site-nav" aria-label="Main navigation">
+            <div class="container nav-layout">
+                <a class="site-brand" href="index.html">
+                    <img class="site-logo" src="images/ready-myanmar-logo.png" width="44" height="44" alt="">
+                    <span>Ready Myanmar</span>
+                </a>
+
+                <button class="btn btn-outline-success menu-button" id="menuButton" type="button"
+                    aria-controls="mainMenu" aria-expanded="false">
+                    <i class="bi bi-list" aria-hidden="true"></i> Menu
+                </button>
+
+                <div class="main-menu" id="mainMenu">
+                    <ul class="nav-list">
+                        <li><a class="menu-link" href="index.html">Home</a></li>
+                        <li><a class="menu-link" href="about us.html">About Us</a></li>
+                        <li><a class="menu-link" href="risk.html">Understand the Risks</a></li>
+                        <li><a class="menu-link" href="region.html">Explore Regions</a></li>
+                        <li>
+                            <details class="nav-dropdown">
+                                <summary class="menu-link">
+                                    Prepare <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                                </summary>
+                                <div class="dropdown-panel">
+                                    <a href="prepare.html">Prepare Overview</a>
+                                    <a href="list.html">Household Checklist</a>
+                                    <a href="guide.html">Safety Guides</a>
+                                </div>
+                            </details>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex flex-wrap align-items-center gap-2 button-row" id="guestActions">
+                        <button class="btn btn-outline-success" type="button" data-open="loginDialog">
+                            <i class="bi bi-person" aria-hidden="true"></i> Log in
+                        </button>
+                        <button class="btn btn-success" type="button" data-open="signupDialog">
+                            Sign up
+                        </button>
+                    </div>
+
+                    <details class="nav-dropdown account-menu" id="memberActions" hidden>
+                        <summary class="btn btn-outline-success account-toggle">
+                            <span class="account-initial" id="accountInitial" aria-hidden="true"></span>
+                            <span id="accountName"></span>
+                            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                        </summary>
+                        <div class="dropdown-panel">
+                            <button type="button" data-open="signupDialog">
+                                <i class="bi bi-person-plus" aria-hidden="true"></i> Create new account
+                            </button>
+                            <button type="button" id="logoutButton">
+                                <i class="bi bi-box-arrow-right" aria-hidden="true"></i> Log out
+                            </button>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </nav>
+
+        <dialog class="site-dialog" id="loginDialog" aria-labelledby="loginHeading">
+            <div class="dialog-heading">
+                <h2 id="loginHeading">Log in</h2>
+                <button class="dialog-close" type="button" data-close>
+                    <i class="bi bi-x-lg" aria-hidden="true"></i> Close
+                </button>
+            </div>
+
+            <form class="account-form" data-auth="login" novalidate>
+                <label for="loginEmail">Email</label>
+                <input class="form-control" id="loginEmail" name="email" type="email"
+                    autocomplete="email" maxlength="254" required>
+
+                <label for="loginPassword">Password</label>
+                <input class="form-control" id="loginPassword" name="password" type="password"
+                    autocomplete="current-password" maxlength="128" required>
+
+                <button class="btn btn-success" type="submit">Log in</button>
+            </form>
+        </dialog>
+
+        <dialog class="site-dialog" id="signupDialog" aria-labelledby="signupHeading">
+            <div class="dialog-heading">
+                <h2 id="signupHeading">Create an account</h2>
+                <button class="dialog-close" type="button" data-close>
+                    <i class="bi bi-x-lg" aria-hidden="true"></i> Close
+                </button>
+            </div>
+
+            <p>Use a test password. This demo account is saved in this browser.</p>
+
+            <form class="account-form" data-auth="signup" novalidate>
+                <label for="signupName">Name</label>
+                <input class="form-control" id="signupName" name="displayName"
+                    autocomplete="name" maxlength="50" required>
+
+                <label for="signupEmail">Email</label>
+                <input class="form-control" id="signupEmail" name="email" type="email"
+                    autocomplete="email" maxlength="254" required>
+
+                <label for="signupPassword">Password (at least 8 characters)</label>
+                <input class="form-control" id="signupPassword" name="password" type="password"
+                    autocomplete="new-password" minlength="8" maxlength="128" required>
+
+                <label for="signupConfirm">Confirm password</label>
+                <input class="form-control" id="signupConfirm" name="confirmation" type="password"
+                    autocomplete="new-password" maxlength="128" required>
+
+                <button class="btn btn-success" type="submit">Create account</button>
+            </form>
+        </dialog>
+    </header>
+
+    <main id="main">
+        <section class="home-hero">
+            <div class="container page-section">
+                <div class="split-layout">
+                    <div class="split-column" data-aos="fade-up">
+                        <h1 class="hero-title">Know your risks.<br><span>Reduce the harm.</span></h1>
+                        <p class="lead">Ready Myanmar helps you understand the hazards where you live, learn from past disasters, and take practical steps to protect your home and community.</p>
+
+                        <div class="d-flex flex-wrap align-items-center gap-2 button-row">
+                            <a class="btn btn-success" href="region.html">
+                                <i class="bi bi-geo-alt" aria-hidden="true"></i> Explore My Region
+                            </a>
+                            <a class="btn btn-outline-success" href="prepare.html">
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i> Find Ways to Reduce Risk
+                            </a>
+                        </div>
+                    </div>
+
+                    <figure class="guide-frame" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/ready-myanmar-guide.png" width="1536" height="1024"
+                            fetchpriority="high"
+                            alt="Know your area: find the hazards near you. Reduce the risk: make your home safer. Plan together: agree on what to do.">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="container page-section" aria-labelledby="eventsHeading">
+            <div data-aos="fade-up">
+                <h2 class="section-title" id="eventsHeading">What has happened in Myanmar?</h2>
+                <p class="home-intro">See where disasters happened, what caused them, and how they affected people and places.</p>
+            </div>
+
+            <div id="eventSlider" role="region" aria-label="Five Myanmar hazard examples">
+                <article class="slide-panel">
+                    <div class="home-story">
+                        <figure class="story-photo">
+                            <img src="images/disaster earthquake 01 homepage.jpg" alt="Photograph showing earthquake damage">
+                            <figcaption>Mandalay &amp; Sagaing</figcaption>
+                        </figure>
+
+                        <div class="story-copy">
+                            <p class="story-date">28 March 2025</p>
+                            <h3>The central Myanmar earthquake</h3>
+                            <p>The Sagaing Fault ruptured near Mandalay. Mandalay, Sagaing, and Nay Pyi Taw were among the hardest-hit areas. The damage figures below come from UNICEF’s June 2025 update.</p>
+
+                            <dl class="event-stats">
+                                <div>
+                                    <dt><span data-count="7.7">7.7</span></dt>
+                                    <dd>Magnitude</dd>
+                                </div>
+                                <div>
+                                    <dt>≈<span data-count="52000">52,000</span></dt>
+                                    <dd>Homes damaged or destroyed</dd>
+                                </div>
+                                <div>
+                                    <dt><span data-count="789">789</span></dt>
+                                    <dd>Hospitals damaged or destroyed</dd>
+                                </div>
+                            </dl>
+
+                            <a href="https://myanmar.un.org/en/296356-unicef-myanmar-earthquake-flash-update-no-15">Read the UNICEF update</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide-panel" hidden>
+                    <div class="home-story">
+                        <figure class="story-photo">
+                            <img src="images/hpakant-landslide.jpg" alt="Photograph illustrating an unstable slope">
+                            <figcaption>Hpakant, Kachin</figcaption>
+                        </figure>
+
+                        <div class="story-copy">
+                            <p class="story-date">2 July 2020</p>
+                            <h3>The Hpakant landslide</h3>
+                            <p>A slope collapsed at the Wai Khar jade mine. Heavy rain can weaken slopes, and excavation can change their stability. People working or living below unstable slopes are especially exposed.</p>
+
+                            <dl class="event-stats">
+                                <div>
+                                    <dt>≥<span data-count="172">172</span></dt>
+                                    <dd>Miners died</dd>
+                                </div>
+                                <div>
+                                    <dt><span data-count="20">20</span></dt>
+                                    <dd>Years of changes at the mine studied</dd>
+                                </div>
+                            </dl>
+
+                            <a href="https://earthobservatory.sg/research/publications/the-2020-hpakant-jade-mine-disaster-myanmar-a-multi-sensor-investigation-for-slope-failure">Read the landslide investigation</a><br>
+                            <a href="https://www.earth.sinica.edu.tw/index.php/en/research/fields/detail/51">See how researchers studied the site</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide-panel" hidden>
+                    <div class="home-story">
+                        <figure class="story-photo">
+                            <img src="images/yangon-subsidence.jpg" alt="Photograph illustrating how sinking ground can affect built-up areas">
+                            <figcaption>Yangon</figcaption>
+                        </figure>
+
+                        <div class="story-copy">
+                            <p class="story-date">Study published in 2018</p>
+                            <h3>Sinking ground in Yangon</h3>
+                            <p>Satellite measurements showed that parts of Yangon were slowly sinking. Researchers linked much of this movement to groundwater pumping. A sinkhole can form if water dissolves rock below the surface and the ground gives way.</p>
+
+                            <dl class="event-stats">
+                                <div>
+                                    <dt><span data-count="4">4</span></dt>
+                                    <dd>Zones with marked differences in ground movement</dd>
+                                </div>
+                                <div>
+                                    <dt>&gt;<span data-count="20">20</span></dt>
+                                    <dd>mm per year difference in vertical movement in those zones</dd>
+                                </div>
+                            </dl>
+
+                            <a href="https://research.tudelft.nl/en/publications/monitoring-land-subsidence-in-yangon-myanmar-using-sentinel-1-per/">Read the Yangon study</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide-panel" hidden>
+                    <div class="home-story">
+                        <figure class="story-photo">
+                            <img src="images/tsunami-coast.jpg" alt="Photograph of a low-lying coastal area">
+                            <figcaption>Ayeyarwady Delta &amp; Tanintharyi coast</figcaption>
+                        </figure>
+
+                        <div class="story-copy">
+                            <p class="story-date">26 December 2004</p>
+                            <h3>The Indian Ocean tsunami</h3>
+                            <p>A major undersea earthquake off Sumatra moved the seafloor and sent waves across the Indian Ocean. In low-lying coastal communities, those waves can carry water far inland.</p>
+
+                            <dl class="event-stats">
+                                <div>
+                                    <dt><span data-count="0.4">0.4</span>–<span data-count="2.9">2.9</span></dt>
+                                    <dd>Metres of measured tsunami height</dd>
+                                </div>
+                                <div>
+                                    <dt><span data-count="22">22</span></dt>
+                                    <dd>Sites surveyed along Myanmar’s coast</dd>
+                                </div>
+                            </dl>
+
+                            <a href="https://link.springer.com/article/10.1186/BF03353384">Read the coastal survey</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide-panel" hidden>
+                    <div class="home-story">
+                        <figure class="story-photo">
+                            <img src="images/disaster flooding 02 homepage.jpg" alt="Photograph showing flood impacts">
+                            <figcaption>Bago, Kayin, Mandalay &amp; other areas</figcaption>
+                        </figure>
+
+                        <div class="story-copy">
+                            <p class="story-date">September 2024</p>
+                            <h3>Floods after heavy monsoon rain</h3>
+                            <p>Heavy monsoon rain and the remnants of Typhoon Yagi caused widespread flooding. Low-lying areas and riverside communities are particularly exposed when water rises. These figures come from the UN’s 27 September 2024 report.</p>
+
+                            <dl class="event-stats">
+                                <div>
+                                    <dt>≈<span data-count="1000000">1,000,000</span></dt>
+                                    <dd>People affected</dd>
+                                </div>
+                                <div>
+                                    <dt><span data-count="70">70</span></dt>
+                                    <dd>Townships affected</dd>
+                                </div>
+                                <div>
+                                    <dt>&gt;<span data-count="360">360</span></dt>
+                                    <dd>Reported drowning deaths</dd>
+                                </div>
+                            </dl>
+
+                            <a href="https://myanmar.un.org/en/279958-myanmar-flood-situation-report-3-27-september-2024">Read the UN flood report</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center gap-2 button-row event-controls">
+                <button class="btn btn-outline-success" type="button" data-slider="eventSlider"
+                    data-direction="-1" aria-controls="eventSlider">
+                    <i class="bi bi-arrow-left" aria-hidden="true"></i> Previous
+                </button>
+                <button class="btn btn-outline-success" type="button" data-slider="eventSlider"
+                    data-direction="1" aria-controls="eventSlider">
+                    Next <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+                <a class="btn btn-success prepare-link" href="prepare.html">
+                    Explore Ways to Reduce Risk <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="home-tinted page-section" aria-labelledby="regionsHeading">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <h2 class="section-title" id="regionsHeading">Explore places closer to home</h2>
+                        <p class="home-intro">Choose a place to see which hazards affect the area and how people can reduce the risk.</p>
+                    </div>
+                    <a class="btn btn-outline-success" href="region.html">
+                        <i class="bi bi-map" aria-hidden="true"></i> Open the map
+                    </a>
+                </div>
+
+                <div class="home-region-grid" data-aos="fade-up">
+                    <a class="region-tile" href="region.html#ayeyarwady">
+                        <img src="images/ayeyarwady.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Region</small><strong>Ayeyarwady</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#bago">
+                        <img src="images/bago.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Region</small><strong>Bago</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#chin">
+                        <img src="images/chin.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>State</small><strong>Chin</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#kachin">
+                        <img src="images/kachin.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>State</small><strong>Kachin</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#kayah">
+                        <img src="images/kayah.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>State</small><strong>Kayah</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#kayin">
+                        <img src="images/kayin.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>State</small><strong>Kayin</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#magway">
+                        <img src="images/magway.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Region</small><strong>Magway</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#mandalay">
+                        <img src="images/mandalay.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Region</small><strong>Mandalay</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#mon">
+                        <img src="images/mon.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>State</small><strong>Mon</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#nay-pyi-taw">
+                        <img src="images/nay-pyi-taw.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Union Territory</small><strong>Nay Pyi Taw</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#rakhine">
+                        <img src="images/rakhine.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>State</small><strong>Rakhine</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#sagaing">
+                        <img src="images/sagaing.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Region</small><strong>Sagaing</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#shan">
+                        <img src="images/shan.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>State</small><strong>Shan</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#tanintharyi">
+                        <img src="images/tanintharyi.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Region</small><strong>Tanintharyi</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                    <a class="region-tile" href="region.html#yangon">
+                        <img src="images/yangon.jpg" alt="" loading="lazy">
+                        <div class="region-label">
+                            <div><small>Region</small><strong>Yangon</strong></div>
+                            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container page-section" aria-labelledby="hazardsHeading">
+            <h2 class="section-title" id="hazardsHeading">Understand the hazards</h2>
+            <p class="home-intro">Find out what causes each hazard and how to reduce the harm it can do.</p>
+
+            <div class="card-grid" data-aos="fade-up">
+                <a class="hazard-tile" href="risk.html#earthquakes">
+                    <img src="images/disaster earthquake 01 homepage.jpg" alt="" loading="lazy">
+                    <div>
+                        <i class="bi bi-activity hazard-icon" aria-hidden="true"></i>
+                        <h3>Earthquakes</h3>
+                        <p>Rocks suddenly slip along a fault and shake the ground.</p>
+                        <span>Explore earthquakes <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a class="hazard-tile" href="risk.html#landslides">
+                    <img src="images/hpakant-landslide.jpg" alt="" loading="lazy">
+                    <div>
+                        <i class="bi bi-triangle hazard-icon" aria-hidden="true"></i>
+                        <h3>Landslides</h3>
+                        <p>Soil or rock moves downhill when a slope becomes unstable.</p>
+                        <span>Explore landslides <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a class="hazard-tile" href="risk.html#subsidence">
+                    <img src="images/yangon-subsidence.jpg" alt="" loading="lazy">
+                    <div>
+                        <i class="bi bi-layers hazard-icon" aria-hidden="true"></i>
+                        <h3>Subsidence &amp; Sinkholes</h3>
+                        <p>Land can sink slowly or suddenly collapse into an underground gap.</p>
+                        <span>Explore sinking ground <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a class="hazard-tile" href="risk.html#tsunamis">
+                    <img src="images/tsunami-coast.jpg" alt="" loading="lazy">
+                    <div>
+                        <i class="bi bi-water hazard-icon" aria-hidden="true"></i>
+                        <h3>Tsunamis</h3>
+                        <p>A sudden shift of the seafloor can send powerful waves toward the coast.</p>
+                        <span>Explore tsunamis <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a class="hazard-tile" href="risk.html#flooding">
+                    <img src="images/disaster flooding 02 homepage.jpg" alt="" loading="lazy">
+                    <div>
+                        <i class="bi bi-cloud-rain-heavy hazard-icon" aria-hidden="true"></i>
+                        <h3>Flooding</h3>
+                        <p>Heavy rain, overflowing rivers, or storm surges can cover homes and roads.</p>
+                        <span>Explore flooding <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="home-purpose page-section" aria-labelledby="purposeHeading">
+            <div class="container split-layout">
+                <div class="split-column">
+                    <h2 class="section-title" id="purposeHeading">Why Ready Myanmar exists</h2>
+                    <p>Every household should be able to find out what could affect their area and what they can do today. We bring local examples, clear explanations, and practical safety steps together in one place.</p>
+                    <a class="btn btn-light" href="about us.html">About Ready Myanmar</a>
+                </div>
+
+                <dl class="site-stats" data-aos="fade-up">
+                    <div>
+                        <dt><span data-count="5">5</span></dt>
+                        <dd>Hazards explained</dd>
+                    </div>
+                    <div>
+                        <dt><span data-count="15">15</span></dt>
+                        <dd>Areas covered</dd>
+                    </div>
+                    <div id="visitStat" hidden>
+                        <dt id="visitCount" data-count></dt>
+                        <dd>Visits on this browser</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="container page-section" aria-labelledby="communityHeading">
+            <h2 class="section-title" id="communityHeading">What Our Community Is Saying</h2>
+            <p class="community-note">Sample community perspectives</p>
+
+            <div class="card-grid" data-aos="fade-up">
+                <figure class="home-quote">
+                    <blockquote>“We talk about earthquakes after they happen. I’d like everyone at home to know where we’ll meet if we get separated.”</blockquote>
+                    <figcaption>
+                        <strong>Aye Chan</strong>
+                        <span>14 years old</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="home-quote">
+                    <blockquote>“When the road floods, our usual way out can disappear. My neighbours and I need to know which route we can use instead.”</blockquote>
+                    <figcaption>
+                        <strong>Tint Naing</strong>
+                        <span>43 years old</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="home-quote">
+                    <blockquote>“I used to think being ready meant packing a bag. Looking around the house helped me spot heavy things that could fall.”</blockquote>
+                    <figcaption>
+                        <strong>Su Myat</strong>
+                        <span>32 years old</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="footer-intro">
+                    <a class="footer-brand" href="index.html">
+                        <img src="images/ready-myanmar-logo.png" width="48" height="48" alt="">
+                        <span>Ready Myanmar</span>
+                    </a>
+                    <p>Understand the risks where you live and learn how to protect your home and community.</p>
+                </div>
+
+                <nav class="footer-links" aria-labelledby="footerQuickLinks">
+                    <h2 class="footer-heading" id="footerQuickLinks">Quick Links</h2>
+                    <a href="index.html">Home</a>
+                    <a href="about us.html">About Us</a>
+                    <a href="risk.html">Understand the Risks</a>
+                    <a href="region.html">Explore Regions</a>
+                </nav>
+
+                <nav class="footer-links" aria-labelledby="footerResources">
+                    <h2 class="footer-heading" id="footerResources">Safety Resources</h2>
+                    <a href="prepare.html">Prepare Overview</a>
+                    <a href="list.html">Household Checklist</a>
+                    <a href="guide.html">Safety Guides</a>
+                </nav>
+
+                <div class="footer-action">
+                    <h2 class="footer-heading">Make a household plan</h2>
+                    <p>Check your supplies, choose a meeting place, and agree on who to contact in an emergency.</p>
+                    <a class="footer-cta" href="list.html">
+                        Open the checklist <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© Ready Myanmar</p>
+
+                <div class="footer-legal">
+                    <button class="footer-button" type="button" data-open="termsDialog">Terms and Conditions</button>
+                    <button class="footer-button" type="button" data-open="privacyDialog">Privacy Policy</button>
+                </div>
+
+                <a class="footer-top" href="#top">
+                    Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <dialog class="site-dialog" id="termsDialog" aria-labelledby="termsHeading">
+        <div class="dialog-heading">
+            <h2 id="termsHeading">Terms and Conditions</h2>
+            <button class="dialog-close" type="button" data-close>
+                <i class="bi bi-x-lg" aria-hidden="true"></i> Close
+            </button>
+        </div>
+        <p>Ready Myanmar provides general information about disaster risk. During emergencies, follow local warnings and instructions from emergency responders.</p>
+    </dialog>
+
+    <dialog class="site-dialog" id="privacyDialog" aria-labelledby="privacyHeading">
+        <div class="dialog-heading">
+            <h2 id="privacyHeading">Privacy Policy</h2>
+            <button class="dialog-close" type="button" data-close>
+                <i class="bi bi-x-lg" aria-hidden="true"></i> Close
+            </button>
+        </div>
+        <p>This site saves demo account details, sign-in status, and your homepage load count in this browser. Clearing this site’s browser data removes those details.</p>
+    </dialog>
+</body>
+</html>

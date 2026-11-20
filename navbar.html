@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg rm-navbar" aria-label="Main navigation">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="images/ready-myanmar-logo.png" width="36" height="36" alt="">
+            <span>Ready Myanmar</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainMenu" aria-controls="mainMenu"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainMenu">
+            <ul class="navbar-nav mx-lg-auto gap-lg-2">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="risk.html">Understand the Risks</a></li>
+                <li class="nav-item"><a class="nav-link" href="region.html">Explore Regions</a></li>
+                <li class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Prepare
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="prepare.html">Prepare Overview</a></li>
+                        <li><a class="dropdown-item" href="list.html">Household Checklist</a></li>
+                        <li><a class="dropdown-item" href="guide.html">Safety Guides</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div id="guestActions" class="py-2 py-lg-0">
+                <button class="btn btn-outline-success" type="button"
+                    data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
+                <button class="btn btn-success" type="button"
+                    data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</button>
+            </div>
+
+            <div id="memberActions" class="dropdown py-2 py-lg-0" hidden>
+                <button class="btn btn-outline-success dropdown-toggle rm-account"
+                    id="accountButton" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="rm-initial" id="accountInitial" aria-hidden="true"></span>
+                    <span id="accountName"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="accountButton">
+                    <li>
+                        <button class="dropdown-item" type="button"
+                            data-bs-toggle="modal" data-bs-target="#signupModal">
+                            Create new account
+                        </button>
+                    </li>
+                    <li><button class="dropdown-item" id="logoutButton" type="button">Log out</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="loginTitle">Log in</h2>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="modal-body" data-auth="login" novalidate>
+                <label class="form-label" for="loginEmail">Email</label>
+                <input class="form-control mb-3" id="loginEmail" name="email" type="email"
+                    autocomplete="email" maxlength="254" required>
+
+                <label class="form-label" for="loginPassword">Password</label>
+                <input class="form-control mb-3" id="loginPassword" name="password"
+                    type="password" autocomplete="current-password" maxlength="128" required>
+
+                <button class="btn btn-success" type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="signupTitle">Create an account</h2>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="modal-body" data-auth="signup" novalidate>
+                <p class="small text-body-secondary">This demo account stays in this browser. Use a test password.</p>
+
+                <label class="form-label" for="signupName">Name</label>
+                <input class="form-control mb-3" id="signupName" name="displayName" type="text"
+                    autocomplete="name" maxlength="50" required>
+
+                <label class="form-label" for="signupEmail">Email</label>
+                <input class="form-control mb-3" id="signupEmail" name="email" type="email"
+                    autocomplete="email" maxlength="254" required>
+
+                <label class="form-label" for="signupPassword">Password (at least 8 characters)</label>
+                <input class="form-control mb-3" id="signupPassword" name="password" type="password"
+                    autocomplete="new-password" minlength="8" maxlength="128" required>
+
+                <label class="form-label" for="signupConfirm">Confirm password</label>
+                <input class="form-control mb-3" id="signupConfirm" name="confirmation" type="password"
+                    autocomplete="new-password" maxlength="128" required>
+
+                <button class="btn btn-success" type="submit">Create account</button>
+            </form>
+        </div>
+    </div>
+</div>
