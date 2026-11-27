@@ -1,0 +1,62 @@
+.resources-page {
+background: #f4f1ee;
+color: #271b19;
+padding-bottom: 3.5rem;
+}
+
+.resources-hero {
+background: linear-gradient(120deg, #32121b, #60313b);
+color: #fff8ef;
+padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.resources-hero h1 {
+color: inherit;
+font-size: clamp(2.5rem, 6vw, 4.75rem);
+}
+
+.resources-hero p {
+max-width: 43rem;
+margin: 0;
+font-size: 1.15rem;
+}
+
+.resources-section {
+padding-top: 2.5rem;
+}
+
+.resources-section h2 {
+margin-bottom: 1rem;
+}
+
+.resource-card {
+background: #fffdfa;
+border: 1px solid #ded1c6;
+border-radius: 0.85rem;
+padding: 1.25rem;
+box-shadow: 0 4px 12px #32121b0a;
+}
+
+.resource-card h3 {
+font-size: 1.15rem;
+margin-bottom: 0.75rem;
+}
+
+.resources-section a {
+color: #4a1320;
+text-decoration: underline;
+text-underline-offset: 0.2em;
+overflow-wrap: anywhere;
+}
+
+.resources-section a:hover {
+color: #783747;
+}
+
+.resource-card li + li {
+margin-top: 0.5rem;
+}
+
+.resource-card p:last-child {
+margin-bottom: 0;
+}

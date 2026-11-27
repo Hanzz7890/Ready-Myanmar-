@@ -1,0 +1,440 @@
+.guides-page [data-aos]:not(.aos-init),
+.guides-page [data-aos]:focus-within {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.guides-hero {
+    overflow: hidden;
+    padding-block: clamp(2.5rem, 6vw, 5rem);
+    background: radial-gradient(ellipse at 85% 20%, #70404b, transparent 57%), #32121b;
+    color: #fff9f1;
+}
+
+.guides-hero-grid,
+.guides-layout,
+.guide-stages,
+.guide-questions {
+    display: grid;
+    gap: 1rem;
+}
+
+.guides-hero-grid {
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+}
+
+.guides-hero h1 {
+    max-width: 13ch;
+    font-size: clamp(2.65rem, 6.6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.05em;
+}
+
+.guides-hero h1 span {
+    color: #e0bd99;
+}
+
+.guides-hero p {
+    max-width: 42ch;
+    margin: 1rem 0 1.4rem;
+    color: #f5e1dd;
+    font-size: 1.1rem;
+}
+
+.guides-hero .btn-success {
+    border-color: #f0d1aa;
+    background: #f0d1aa;
+    color: #32121b;
+}
+
+.guides-hero .btn-outline-success {
+    border-color: #edd2c8;
+    background: transparent;
+    color: #fff9f1;
+}
+
+.guides-hero .btn:hover {
+    box-shadow: 0 0 0 3px #ffdfbf55;
+}
+
+.guides-hero-photo {
+    aspect-ratio: 16 / 9;
+    border-radius: 1rem 3rem 1rem 1rem;
+    background:
+        linear-gradient(140deg, #32121b10, #32121b65),
+        url("images/guide-hero.jpg") center / cover,
+        linear-gradient(135deg, #9c7473, #573740);
+    box-shadow: 0.6rem 0.6rem 0 #dcb79965;
+}
+
+.guides-intro {
+    max-width: 65ch;
+    margin-bottom: 1.25rem;
+}
+
+.guides-layout {
+    align-items: start;
+}
+
+#guidePanels {
+    min-width: 0;
+}
+
+.guide-sidebar {
+    padding: 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 0.85rem;
+    background: #fffdfa;
+}
+
+#hazardNav {
+    display: grid;
+    gap: 0.45rem;
+}
+
+#hazardNav a {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.6rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    color: var(--wine);
+    font-weight: 650;
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+#hazardNav a:hover {
+    background: #efe1df;
+}
+
+#hazardNav a[aria-current] {
+    border-color: var(--wine);
+    background: var(--wine);
+    color: white;
+}
+
+#printGuide {
+    width: 100%;
+    margin-top: 0.85rem;
+}
+
+.guide-timeline {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+
+.guide-timeline h3 {
+    font-size: 1.1rem;
+    font-weight: 780;
+}
+
+.guide-timeline ol {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.guide-timeline ol::before {
+    position: absolute;
+    top: 0.25rem;
+    right: 16%;
+    left: 16%;
+    height: 2px;
+    background: var(--taupe);
+    content: "";
+}
+
+.guide-timeline li {
+    position: relative;
+    min-width: 0;
+    padding-top: 0.85rem;
+}
+
+.guide-timeline li::before {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 0.3rem);
+    width: 0.6rem;
+    height: 0.6rem;
+    border: 2px solid #fffdfa;
+    border-radius: 50%;
+    background: var(--wine);
+    box-shadow: 0 0 0 1px var(--wine);
+    content: "";
+}
+
+.guide-timeline a {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 0.55rem;
+    background: #f9f5f0;
+    color: var(--wine);
+    font-weight: 750;
+    text-decoration: none;
+    transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.guide-timeline a:hover,
+.guide-timeline a[aria-current] {
+    border-color: var(--wine);
+    background: #f1e4e6;
+}
+
+.guide-timeline img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: #eee6de;
+    object-fit: cover;
+}
+
+.guide-timeline a span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.15rem;
+    padding: 0.32rem 0.42rem;
+    font-size: 0.9rem;
+}
+
+.guide-panel {
+    overflow: hidden;
+    margin: 0 0 1rem;
+    border: 1px solid var(--line);
+    border-radius: 0.9rem;
+    background: #fffdfa;
+    box-shadow: 0 0.45rem 1.15rem #251a1810;
+}
+
+.guide-panel.is-active {
+    animation: guide-enter 240ms ease-out;
+}
+
+@keyframes guide-enter {
+    from {
+        opacity: 0.4;
+        transform: translateY(0.35rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.guide-panel:focus-visible {
+    outline-offset: 2px;
+}
+
+.guide-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #eee6de;
+}
+
+.guide-body {
+    padding: clamp(1rem, 3vw, 1.75rem);
+}
+
+.guide-exposure,
+.guide-stage {
+    padding: clamp(0.85rem, 2vw, 1.15rem);
+    border-radius: 0.65rem;
+}
+
+.guide-exposure {
+    margin: 1rem 0;
+    border-left: 4px solid var(--wine);
+    background: #f1e4e6;
+}
+
+.guide-exposure h3,
+.guide-sources h3 {
+    font-size: 1.1rem;
+    font-weight: 750;
+}
+
+.guide-exposure p {
+    margin-bottom: 0.45rem;
+}
+
+.guide-exposure a {
+    font-weight: 700;
+}
+
+.guide-stage {
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--wine);
+    background: #f9f5f0;
+}
+
+.guide-stage.is-current,
+.guide-stage:target {
+    border-color: var(--wine);
+    background: #f3e8e7;
+}
+
+.guide-stage h3 {
+    margin-bottom: 0.55rem;
+    color: var(--wine);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.guide-stage h4 {
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.guide-stage ul {
+    margin: 0;
+    padding-left: 1.15rem;
+}
+
+.guide-stage li + li {
+    margin-top: 0.55rem;
+}
+
+.guide-sources {
+    margin-top: 1.15rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+}
+
+.guide-sources .button-row {
+    gap: 0.35rem 1rem;
+}
+
+.guide-discussion {
+    border-top: 1px solid var(--line);
+    background: #eee6de;
+}
+
+.guide-questions {
+    margin: 1rem 0 1.2rem;
+}
+
+.guide-questions details {
+    padding: 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    background: #fffdfa;
+}
+
+.guide-questions summary {
+    color: var(--wine);
+    font-weight: 700;
+}
+
+.guide-questions p {
+    margin: 0.6rem 0 0;
+}
+
+@media (min-width: 48rem) {
+    .guides-hero-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .guides-layout {
+        grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 2fr);
+    }
+
+    .guide-questions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .guide-timeline ol {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .guide-timeline ol::before {
+        top: 0.35rem;
+        right: auto;
+        bottom: 0.7rem;
+        left: 0.28rem;
+        width: 2px;
+        height: auto;
+    }
+
+    .guide-timeline li {
+        padding-top: 0;
+        padding-left: 1.05rem;
+    }
+
+    .guide-timeline li::before {
+        top: 0.55rem;
+        left: 0;
+    }
+
+    .guide-timeline a span {
+        padding: 0.42rem 0.65rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .guide-panel.is-active {
+        animation: none;
+    }
+
+    #hazardNav a,
+    .guide-timeline a {
+        transition: none;
+    }
+}
+
+@media print {
+    #siteHeader,
+    .skip-link,
+    .guides-hero,
+    #guidesTitle,
+    .guides-intro,
+    .guide-sidebar,
+    .guide-photo,
+    .guide-discussion,
+    .home-footer {
+        display: none !important;
+    }
+
+    .guides-page .container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .guides-layout,
+    .guide-stages {
+        display: block;
+    }
+
+    .guide-panel.is-active {
+        animation: none;
+    }
+
+    .guide-panel,
+    .guide-stage,
+    .guide-exposure {
+        background: white;
+        box-shadow: none;
+    }
+
+    .guide-stage {
+        margin-bottom: 0.65rem;
+        break-inside: avoid;
+    }
+}

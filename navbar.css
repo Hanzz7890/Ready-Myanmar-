@@ -1,0 +1,72 @@
+.rm-navbar {
+    --nav-accent: #126452;
+    background-color: #f7faf5;
+    border-bottom: 1px solid #dce8df;
+}
+
+.rm-navbar .navbar-brand {
+    color: var(--nav-accent);
+    font-weight: 700;
+}
+
+.rm-navbar .nav-link {
+    position: relative;
+    display: inline-block;
+    color: #263a33;
+    font-weight: 600;
+}
+
+.rm-navbar .nav-link::before {
+    position: absolute;
+    inset: auto 0.25rem 0.15rem;
+    height: 2px;
+    background-color: var(--nav-accent);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+}
+
+.rm-navbar .nav-link:hover::before,
+.rm-navbar .nav-link:focus-visible::before,
+.rm-navbar .nav-link.active::before {
+    transform: scaleX(1);
+}
+
+.rm-account {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 100%;
+}
+
+.rm-initial {
+    display: grid;
+    width: 1.8rem;
+    height: 1.8rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--nav-accent);
+    color: white;
+    font-weight: 700;
+}
+
+#accountName {
+    max-width: 8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 991.98px) {
+    .rm-navbar #memberActions .dropdown-menu {
+        position: static;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rm-navbar .nav-link::before {
+        transition: none;
+    }
+}

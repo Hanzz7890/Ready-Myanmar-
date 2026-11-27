@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Check household supplies, plan for emergencies, and save your progress with Ready Myanmar.">
+    <title>Household Checklist | Ready Myanmar</title>
+
+    <link rel="icon" href="images/ready-myanmar-logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="list.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="list.js" defer></script>
+</head>
+
+<body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="siteHeader"></header>
+
+    <main id="main" class="checklist-page">
+        <section class="checklist-hero" aria-labelledby="heroTitle">
+            <div class="container checklist-hero-grid">
+                <div class="checklist-hero-copy" data-aos="fade-up" data-aos-offset="0">
+                    <h1 id="heroTitle">Household <span>Checklist</span></h1>
+                    <p>Get your supplies together and agree on what your household will do in an emergency. Tick each task when you’ve finished it.</p>
+
+                    <div class="button-row no-print">
+                        <a class="btn btn-success" href="#checklistTitle">
+                            Start the checklist <i class="bi bi-arrow-down" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-outline-success" href="prepare.html">Prepare Overview</a>
+                    </div>
+                </div>
+
+                <div class="checklist-hero-photo no-print" data-aos="zoom-in" data-aos-delay="100" data-aos-offset="0" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <section class="container page-section" aria-labelledby="checklistTitle">
+            <h2 class="section-title checklist-section-title" id="checklistTitle" data-aos="fade-up">Your household plan</h2>
+
+            <div class="checklist-layout">
+                <aside class="checklist-sidebar no-print" aria-labelledby="progressHeading">
+                    <div class="checklist-card" data-aos="fade-up">
+                        <h3 id="progressHeading">Your progress</h3>
+                        <p class="progress-number" id="checklistPercent" aria-hidden="true">0%</p>
+
+                        <div class="progress checklist-progress" id="checkProgress" role="progressbar" aria-label="Checklist completion" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+
+                        <p class="progress-count" id="checklistCount" role="status"></p>
+                        <p class="checklist-note" id="saveStatus" role="status"
+                            data-saved="Progress is saved in this browser."
+                            data-load-error="Saved progress could not be loaded. You can still use the checklist."
+                            data-save-error="Your changes could not be saved. Print the checklist if you want a copy.">
+                            Progress is saved in this browser.
+                        </p>
+                    </div>
+
+                    <div class="checklist-card checklist-controls" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Filter tasks</h3>
+
+                        <div class="checklist-field">
+                            <label for="categoryFilter">Category</label>
+                            <select class="form-select" id="categoryFilter">
+                                <option value="all">All categories</option>
+                                <option>Water and food</option>
+                                <option>Health and hygiene</option>
+                                <option>Communication</option>
+                                <option>Household planning</option>
+                            </select>
+                        </div>
+
+                        <div class="checklist-field">
+                            <label for="statusFilter">Show</label>
+                            <select class="form-select" id="statusFilter">
+                                <option value="all">All items</option>
+                                <option value="remaining">Remaining items</option>
+                                <option value="completed">Completed items</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-success w-100" type="button" id="printChecklist">
+                            <i class="bi bi-printer" aria-hidden="true"></i> Print full checklist
+                        </button>
+                    </div>
+                </aside>
+
+                <div class="checklist-content">
+                    <div id="checklistItems">
+                        <section class="checklist-card task-group" data-category="Water and food" aria-labelledby="foodTitle">
+                            <h3 id="foodTitle"><i class="bi bi-droplet" aria-hidden="true"></i> Water and food</h3>
+
+                            <div class="task-row" data-task="water">
+                                <label><input type="checkbox"> <span>Prepare drinking water for your household</span></label>
+                            </div>
+                            <div class="task-row" data-task="food">
+                                <label><input type="checkbox"> <span>Prepare non-perishable food and a manual can opener</span></label>
+                            </div>
+                            <div class="task-row" data-task="food-needs">
+                                <label><input type="checkbox"> <span>Include food for specific dietary needs</span></label>
+                            </div>
+                        </section>
+
+                        <section class="checklist-card task-group" data-category="Health and hygiene" aria-labelledby="healthTitle">
+                            <h3 id="healthTitle"><i class="bi bi-bandaid" aria-hidden="true"></i> Health and hygiene</h3>
+
+                            <div class="task-row" data-task="first-aid">
+                                <label><input type="checkbox"> <span>Check your first-aid kit</span></label>
+                            </div>
+                            <div class="task-row" data-task="medicine">
+                                <label><input type="checkbox"> <span>Plan access to prescribed medicines and essential equipment</span></label>
+                            </div>
+                            <div class="task-row" data-task="hygiene">
+                                <label><input type="checkbox"> <span>Gather soap and personal hygiene supplies</span></label>
+                            </div>
+                        </section>
+
+                        <section class="checklist-card task-group" data-category="Communication" aria-labelledby="communicationTitle">
+                            <h3 id="communicationTitle"><i class="bi bi-broadcast" aria-hidden="true"></i> Communication</h3>
+
+                            <div class="task-row" data-task="torch">
+                                <label><input type="checkbox"> <span>Check a torch and spare batteries</span></label>
+                            </div>
+                            <div class="task-row" data-task="radio">
+                                <label><input type="checkbox"> <span>Identify a reliable way to receive official updates</span></label>
+                            </div>
+                            <div class="task-row" data-task="phone">
+                                <label><input type="checkbox"> <span>Prepare a phone charger or power bank</span></label>
+                            </div>
+                            <div class="task-row" data-task="contacts">
+                                <label><input type="checkbox"> <span>Write down important household contacts</span></label>
+                            </div>
+                        </section>
+
+                        <section class="checklist-card task-group" data-category="Household planning" aria-labelledby="planningTitle">
+                            <h3 id="planningTitle"><i class="bi bi-house-check" aria-hidden="true"></i> Household planning</h3>
+
+                            <div class="task-row" data-task="meeting">
+                                <label><input type="checkbox"> <span>Agree on a household meeting place</span></label>
+                            </div>
+                            <div class="task-row" data-task="routes">
+                                <label><input type="checkbox"> <span>Learn local evacuation routes</span></label>
+                            </div>
+                            <div class="task-row" data-task="support">
+                                <label><input type="checkbox"> <span>Plan support for children, older adults and disabled people</span></label>
+                            </div>
+                            <div class="task-row" data-task="documents">
+                                <label><input type="checkbox"> <span>Protect copies of important documents</span></label>
+                            </div>
+                            <div class="task-row" data-task="pets">
+                                <label><input type="checkbox"> <span>Include pets in your household plan</span></label>
+                            </div>
+                        </section>
+                    </div>
+
+                    <p class="checklist-card no-print" id="emptyChecklist" role="status" hidden>No items match these filters.</p>
+
+                    <form class="checklist-card no-print" id="customItemForm" data-aos="fade-up">
+                        <h3>Add your own item</h3>
+
+                        <div class="checklist-form-grid">
+                            <div class="checklist-field">
+                                <label for="customItemText">Item</label>
+                                <input class="form-control" type="text" id="customItemText" maxlength="120" required
+                                    placeholder="For example, pack a spare pair of glasses"
+                                    data-invalid="Please enter at least two characters.">
+                            </div>
+
+                            <div class="checklist-field">
+                                <label for="customItemCategory">Category</label>
+                                <select class="form-select" id="customItemCategory">
+                                    <option>Water and food</option>
+                                    <option>Health and hygiene</option>
+                                    <option>Communication</option>
+                                    <option>Household planning</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-success" type="submit">
+                                <i class="bi bi-plus-lg" aria-hidden="true"></i> Add item
+                            </button>
+                        </div>
+                    </form>
+
+                    <template id="customTaskTemplate">
+                        <div class="task-row" data-custom>
+                            <label><input type="checkbox"> <span></span></label>
+                            <button class="remove-task no-print" type="button">Remove</button>
+                        </div>
+                    </template>
+
+                    <div class="button-row checklist-actions no-print">
+                        <button class="btn btn-outline-success" type="button" id="resetProgress" data-confirm="Uncheck every item? Your custom items will stay.">
+                            Reset progress
+                        </button>
+                        <button class="btn btn-outline-success" type="button" id="clearChecklist" data-confirm="Clear all progress and remove your custom items?">
+                            Clear progress and custom items
+                        </button>
+                    </div>
+
+                    <p class="checklist-note">The percentage shows how many tasks you’ve ticked. Use the safety guides to plan for the hazards where you live.</p>
+
+                    <div class="button-row checklist-resources no-print">
+                        <a href="guide.html">Open Safety Guides <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                        <a href="https://www.ready.gov/kit">Ready.gov emergency supply guidance</a>
+                    </div>
+
+                    <noscript>
+                        <p>Enable JavaScript to save progress, filter tasks, and add new items.</p>
+                    </noscript>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="footer-intro">
+                    <a class="footer-brand" href="index.html">
+                        <img src="images/ready-myanmar-logo.png" width="48" height="48" alt="">
+                        <span>Ready Myanmar</span>
+                    </a>
+                    <p>Understand the risks where you live and learn how to protect your home and community.</p>
+                </div>
+
+                <nav class="footer-links" aria-labelledby="footerQuickLinks">
+                    <h2 class="footer-heading" id="footerQuickLinks">Quick Links</h2>
+                    <a href="index.html">Home</a>
+                    <a href="about us.html">About Us</a>
+                    <a href="risk.html">Understand the Risks</a>
+                    <a href="region.html">Explore Regions</a>
+                </nav>
+
+                <nav class="footer-links" aria-labelledby="footerResources">
+                    <h2 class="footer-heading" id="footerResources">Safety Resources</h2>
+                    <a href="prepare.html">Prepare Overview</a>
+                    <a href="list.html">Household Checklist</a>
+                    <a href="guide.html">Safety Guides</a>
+                    <a href="resources.html">Resources</a>
+                </nav>
+
+                <div class="footer-action">
+                    <h2 class="footer-heading">Make a household plan</h2>
+                    <p>Check your supplies, choose a meeting place, and agree on who to contact in an emergency.</p>
+                    <a class="footer-cta" href="list.html">
+                        Open the checklist <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© Ready Myanmar</p>
+
+                <div class="footer-legal">
+                    <button class="footer-button" type="button" data-open="termsDialog">Terms and Conditions</button>
+                    <button class="footer-button" type="button" data-open="privacyDialog">Privacy Policy</button>
+                </div>
+
+                <a class="footer-top" href="#top">
+                    Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <dialog class="site-dialog" id="termsDialog" aria-labelledby="termsHeading">
+        <div class="dialog-heading">
+            <h2 id="termsHeading">Terms and Conditions</h2>
+            <button class="dialog-close" type="button" data-close>
+                <i class="bi bi-x-lg" aria-hidden="true"></i> Close
+            </button>
+        </div>
+        <p>Ready Myanmar provides general information about disaster risk. During emergencies, follow local warnings and instructions from emergency responders.</p>
+    </dialog>
+
+    <dialog class="site-dialog" id="privacyDialog" aria-labelledby="privacyHeading">
+        <div class="dialog-heading">
+            <h2 id="privacyHeading">Privacy Policy</h2>
+            <button class="dialog-close" type="button" data-close>
+                <i class="bi bi-x-lg" aria-hidden="true"></i> Close
+            </button>
+        </div>
+        <p>This site saves checklist progress, custom items, demo account details, sign-in status, and your homepage load count in this browser. Clearing this site’s browser data removes those details.</p>
+    </dialog>
+</body>
+</html>
